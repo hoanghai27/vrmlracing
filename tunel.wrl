@@ -1,0 +1,68 @@
+#VRML V2.0 utf8
+
+#VRML V2.0 utf8 
+#Ejemplo de extrusión: cubo
+DEF TunelTr Transform 
+  {
+  rotation 1 0 0 4.712000
+  children	[
+	  SpotLight 
+  {
+  direction 5 10 0
+  location 5 10 4.95
+  }
+  SpotLight 
+  {
+  direction 5 30 0
+  location 5 30 4.95
+  }
+
+  SpotLight 
+  {
+  direction 5 60 0
+  location 5 60 4.95
+  }
+
+
+  
+  
+  
+  
+  DEF tunel Shape 
+      {
+      appearance Appearance 
+	{
+	material Material 
+	  {
+	  ambientIntensity .1
+	  diffuseColor .39 .39 .39
+	  shininess .04
+	  specularColor .04 .03 .1
+	  emissiveColor .05 .05 .05
+	  }
+	}
+      geometry Extrusion 
+	{
+	crossSection 
+	  [
+	  0 0 
+	  0 6 
+	  10 6 
+	  10 0 
+	  9 0 
+	  9 5 
+	  1 5 
+	  1 0 
+	  0 0 
+	  ]
+	solid FALSE
+	spine 
+	  [
+	  0 -0.100000 0 
+	  0 70 0 
+	  ]
+	}
+      }
+  ]}
+
+

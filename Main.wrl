@@ -1,0 +1,210 @@
+#VRML V2.0 utf8
+
+Transform {
+	children Inline	{
+		url	["Race track.wrl"]
+	}
+}
+
+DEF car Transform {
+	children [
+		Transform 
+		{
+			translation	-1.3 0 0
+
+			rotation 0.1 0 0 -1.571
+
+			children [
+				DEF thanhxe Transform {					
+					children
+					[
+						Inline
+						{
+							url	["DauXe.wrl"]
+						}
+					]		
+				}
+
+				Transform {        				
+					rotation 0.5 0 0 3.142  
+					translation	 1.32 0.9 0.8	
+    				children [
+    					DEF volang Transform {	
+							scale 0.04 0.04 0.04	 							
+							rotation 0 0 0 1.57 
+							children
+							[
+								Inline
+								{
+									url	["taylai.wrl"]
+								}
+							]		
+						}
+						DEF CS1 CylinderSensor { 
+        					maxAngle 1.4          
+        					minAngle -1.4
+    					}	
+    				]
+				}
+
+				Transform {
+            		translation 1.32 0.9 0.9 
+            		children [
+						DEF	Start TouchSensor {}
+						Shape {
+							geometry Box{ size .09 .09 .09 }
+							appearance Appearance {
+								material Material {
+									diffuseColor .26 .19 .55
+									specularColor .37 .27 .78
+									emissiveColor .23 .09 .24
+									ambientIntensity .08
+									shininess .07
+								}
+							}
+						}
+					]
+				}
+
+				Transform {
+            		translation 1.32 0.9 0.7
+            		children [
+						DEF	Stop TouchSensor {}
+						Shape {
+							geometry Box{ size .09 .09 .09 }
+							appearance Appearance {
+								material Material {
+									diffuseColor .26 .19 .55
+									specularColor .37 .27 .78
+									emissiveColor 0.86        0.15       0.27
+									ambientIntensity .08
+									shininess .07
+								}
+							}
+						}
+					]
+				}
+		
+
+				Transform {         					
+					translation	 0.3 2.89 0.4				
+					rotation 0.5 0 0 1.571	
+    				children [
+						DEF banhtrai Transform {
+				
+							children
+							[
+								Transform {
+									scale 0.04 0.04 0.04
+									rotation 0.5 0 88 1.571	 											
+									children [
+										DEF canhtrai Transform {		
+											children
+											[
+												Inline
+												{
+													url	["banhtrai.wrl"]
+												}
+											]
+										}
+									]
+								}
+							]		
+						}
+					]
+				}
+
+				Transform {         					
+					translation	 2.3 2.89 0.4
+					rotation 0.5 0 0 1.571		
+    				children [
+						DEF banhphai Transform {					
+							children
+							[
+								Transform {
+									scale 0.04 0.04 0.04	 									
+									rotation 0.5 0 -88 1.571				
+									children [
+										DEF canhphai Transform {		
+											children
+											[										
+												Inline
+												{
+													url	["banhphai.wrl"]
+												}										
+											]
+										}
+									]
+								}
+							]		
+						}
+					]
+				}
+			]
+		}
+
+		Viewpoint {
+			jump FALSE
+			position 0 1.2 0
+			orientation	1 0 0 -0.2
+		}
+
+		DEF	TS TimeSensor {
+			cycleInterval 1
+			startTime 0
+			stopTime 1
+			loop TRUE
+		}
+		DEF	OIPhai OrientationInterpolator {
+			key	[0 0.33 0.66 1.0]	
+			keyValue [0 1 0 0, 0 1 0 -2.09, 0 1 0 -4.18, 0 1 0 -6.28]
+		}
+
+		DEF	OITrai OrientationInterpolator {
+			key	[0 0.33 0.66 1.0]	
+			keyValue [0 1 0 -6.28, 0 1 0 -4.18, 0 1 0 -2.09, 0 1 0 0]
+		}
+
+		DEF	PIMove PositionInterpolator {
+			key	[0 1]
+			keyValue [0 0 0, 0 0 1]
+		}
+
+		DEF	SCRMove Script {
+			eventIn	SFVec3f in
+			field SFNode car USE car
+			field SFNode volang USE volang
+			url	"javascript:
+			function in(value, timestamp)
+			{
+				var angel = volang.rotation[1] == 0 ? 0 : volang.rotation[3];
+				car.translation = new SFVec3f(calNewPos(car.translation, angel, 1));
+			}
+
+
+			function calNewPos(pos, angel, v)
+			{
+				pos[0] -= v * Math.sin(angel);
+				pos[2] -= v * Math.cos(angel);
+
+				return pos;
+			}
+			"
+		}
+	]
+}
+ROUTE CS1.rotation_changed TO volang.rotation
+ROUTE CS1.rotation_changed TO banhphai.rotation
+ROUTE CS1.rotation_changed TO banhtrai.rotation
+ROUTE CS1.rotation_changed TO car.rotation
+
+ROUTE Start.touchTime TO TS.startTime
+ROUTE TS.fraction_changed TO OIPhai.set_fraction
+ROUTE TS.fraction_changed TO PIMove.set_fraction
+ROUTE OIPhai.value_changed TO canhphai.rotation
+ROUTE PIMove.value_changed TO SCRMove.in
+
+ROUTE TS.fraction_changed TO OITrai.set_fraction
+ROUTE OITrai.value_changed TO canhtrai.rotation
+
+ROUTE Stop.touchTime TO TS.stopTime
