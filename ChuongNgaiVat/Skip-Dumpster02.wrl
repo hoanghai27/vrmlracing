@@ -1,0 +1,587 @@
+#VRML V2.0 utf8
+Transform {
+rotation 1 0 0 -1.570796
+children [
+Shape {
+appearance DEF TEX_DumpsterSide01 Appearance {
+material Material {}
+texture ImageTexture {
+url ["DumpsterSide01.jpg"]
+}
+}
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+98.442 0 0,
+98.442 0 71.26,
+98.442 -78.74 71.26,
+98.442 -72.835 0,
+]
+}
+coordIndex [
+0
+1
+2
+3
+-1
+]
+texCoord TextureCoordinate {
+point [
+4 2,
+4.001 2.907,
+2.992 2.907,
+3.067 2,
+]
+}
+}
+}
+Shape {
+appearance DEF COL_BackColor Appearance {
+material Material { diffuseColor 0.671 0.69 0.8 }
+}
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+98.442 -72.835 0,
+98.442 -78.74 71.26,
+98.442 0 71.26,
+98.442 0 0,
+]
+}
+coordIndex [
+0
+1
+2
+3
+-1
+]
+}
+}
+Shape {
+appearance DEF TEX_DumpsterFront01 Appearance {
+material Material {}
+texture ImageTexture {
+url ["DumpsterFront01.jpg"]
+}
+}
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+0.017 -72.835 0,
+98.442 -72.835 0,
+98.442 -78.74 71.26,
+0.017 -78.74 71.26,
+]
+}
+coordIndex [
+0
+1
+2
+3
+-1
+]
+texCoord TextureCoordinate {
+point [
+4 3.002,
+4.976 3.002,
+4.976 3.905,
+4 3.905,
+]
+}
+}
+}
+Shape {
+appearance USE COL_BackColor
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+0.017 -78.74 71.26,
+98.442 -78.74 71.26,
+98.442 -72.835 0,
+0.017 -72.835 0,
+]
+}
+coordIndex [
+0
+1
+2
+3
+-1
+]
+}
+}
+Shape {
+appearance DEF TEX_DumpsterTop01 Appearance {
+material Material {}
+texture ImageTexture {
+url ["DumpsterTop01.jpg"]
+}
+}
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+0.017 0 78.74,
+0.017 -78.74 71.26,
+98.442 -78.74 71.26,
+98.442 0 78.74,
+]
+}
+coordIndex [
+0
+1
+2
+3
+-1
+]
+texCoord TextureCoordinate {
+point [
+4 -4,
+3 -4,
+3 -5,
+4 -5,
+]
+}
+}
+}
+Shape {
+appearance USE COL_BackColor
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+98.442 0 78.74,
+98.442 -78.74 71.26,
+0.017 -78.74 71.26,
+0.017 0 78.74,
+]
+}
+coordIndex [
+0
+1
+2
+3
+-1
+]
+}
+}
+Shape {
+appearance USE TEX_DumpsterTop01
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+98.442 0 78.74,
+98.442 -78.74 71.26,
+98.442 0 71.26,
+]
+}
+coordIndex [
+0
+1
+2
+-1
+]
+texCoord TextureCoordinate {
+point [
+3.997 -5.292,
+2.997 -5.292,
+3.988 -5.387,
+]
+}
+}
+}
+Shape {
+appearance USE COL_BackColor
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+98.442 0 71.26,
+98.442 -78.74 71.26,
+98.442 0 78.74,
+]
+}
+coordIndex [
+0
+1
+2
+-1
+]
+}
+}
+Shape {
+appearance USE TEX_DumpsterFront01
+geometry IndexedFaceSet {
+convex FALSE
+solid TRUE
+coord Coordinate {
+point [
+98.442 0 0,
+0.017 0 0,
+0.017 0 71.26,
+0.017 0 78.74,
+98.442 0 78.74,
+98.442 0 71.26,
+]
+}
+coordIndex [
+0
+1
+2
+3
+4
+5
+-1
+]
+texCoord TextureCoordinate {
+point [
+3.008 3.008,
+3.984 3.008,
+3.984 3.907,
+3.984 4.002,
+3.008 4.002,
+3.008 3.907,
+]
+}
+}
+}
+Shape {
+appearance USE COL_BackColor
+geometry IndexedFaceSet {
+convex FALSE
+solid TRUE
+coord Coordinate {
+point [
+98.442 0 71.26,
+98.442 0 78.74,
+0.017 0 78.74,
+0.017 0 71.26,
+0.017 0 0,
+98.442 0 0,
+]
+}
+coordIndex [
+0
+1
+2
+3
+4
+5
+-1
+]
+}
+}
+Shape {
+appearance USE TEX_DumpsterTop01
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+0.017 0 78.74,
+0.017 0 71.26,
+0.017 -78.74 71.26,
+]
+}
+coordIndex [
+0
+1
+2
+-1
+]
+texCoord TextureCoordinate {
+point [
+3.999 -3.663,
+3.99 -3.569,
+2.999 -3.663,
+]
+}
+}
+}
+Shape {
+appearance USE COL_BackColor
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+0.017 -78.74 71.26,
+0.017 0 71.26,
+0.017 0 78.74,
+]
+}
+coordIndex [
+0
+1
+2
+-1
+]
+}
+}
+Shape {
+appearance USE TEX_DumpsterSide01
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+0.017 -72.835 0,
+0.017 -78.74 71.26,
+0.017 0 71.26,
+0.017 0 0,
+]
+}
+coordIndex [
+0
+1
+2
+3
+-1
+]
+texCoord TextureCoordinate {
+point [
+4.933 1.999,
+5.009 2.906,
+4.001 2.906,
+4 1.999,
+]
+}
+}
+}
+Shape {
+appearance USE COL_BackColor
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+0.017 0 0,
+0.017 0 71.26,
+0.017 -78.74 71.26,
+0.017 -72.835 0,
+]
+}
+coordIndex [
+0
+1
+2
+3
+-1
+]
+}
+}
+Shape {
+appearance DEF TEX_DumpsterBaseMap01 Appearance {
+material Material {}
+texture ImageTexture {
+url ["DumpsterBaseMap01.jpg"]
+}
+}
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+0.017 -72.835 0,
+0.017 0 0,
+98.442 0 0,
+98.442 -72.835 0,
+]
+}
+coordIndex [
+0
+1
+2
+3
+-1
+]
+texCoord TextureCoordinate {
+point [
+0 -1,
+0 0,
+-1.375 0,
+-1.375 -1,
+]
+}
+}
+}
+Shape {
+appearance USE COL_BackColor
+geometry IndexedFaceSet {
+solid TRUE
+coord Coordinate {
+point [
+98.442 -72.835 0,
+98.442 0 0,
+0.017 0 0,
+0.017 -72.835 0,
+]
+}
+coordIndex [
+0
+1
+2
+3
+-1
+]
+}
+}
+Shape {
+appearance DEF COL_ForegroundColor Appearance {
+material Material { diffuseColor 0.333 0.322 0.247
+}
+}
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 0.017 -72.835 0,
+0.017 0 0,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 98.442 -72.835 0,
+0.017 -72.835 0,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 98.442 -72.835 0,
+98.442 -78.74 71.26,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 98.442 0 0,
+98.442 -72.835 0,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 0.017 0 0,
+98.442 0 0,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 0.017 0 0,
+0.017 0 71.26,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 0.017 0 71.26,
+0.017 0 78.74,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 0.017 -78.74 71.26,
+0.017 0 78.74,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 98.442 -78.74 71.26,
+0.017 -78.74 71.26,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 98.442 0 78.74,
+98.442 -78.74 71.26,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 0.017 0 78.74,
+98.442 0 78.74,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 98.442 0 71.26,
+98.442 0 78.74,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 98.442 0 0,
+98.442 0 71.26,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+Shape {
+appearance USE COL_ForegroundColor
+geometry IndexedLineSet {
+coord Coordinate {
+point [ 0.017 -72.835 0,
+0.017 -78.74 71.26,
+]
+}
+coordIndex [ 0 1 -1]
+}
+}
+]
+}

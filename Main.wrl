@@ -1,16 +1,81 @@
 #VRML V2.0 utf8
 
-Transform {
+
+Background {
+	skyColor  [0.196078 0.6 0.8]
+}
+
+DEF colMap Collision {
+	collide	TRUE
 	children Inline	{
 		url	["Race track.wrl"]
 	}
 }
 
+DEF colDich Collision {
+	collide	TRUE
+	children Transform {
+		translation	0 0 -550
+		scale 0.1 0.1 0.1
+		children Inline	{
+			url	["Dich.wrl"]
+		}
+	}
+}
+
+Transform {
+	children DEF col Collision {
+		children [
+			Transform {
+				translation	3 0 -50
+				scale .07 .07 .07
+				children Inline {
+					url	["ChuongNgaiVat\BoxesEtc01.wrl"]
+				}
+			}
+
+			Transform {
+				translation	3 0 -250
+				scale .1 .1 .1
+				children Inline {
+					url	["ChuongNgaiVat\Dustbin.wrl"]
+				}
+			}
+
+			Transform {
+				translation	0 0 -300
+				scale .15 .15 .15
+				children Inline {
+					url	["ChuongNgaiVat\Skip-Dumpster.wrl"]
+				}
+			}
+
+			Transform {
+				translation	-2 0 -350
+				scale .15 .15 .15
+				children Inline {
+					url	["ChuongNgaiVat\OilBarrels.wrl"]
+				}
+			}
+
+			Transform {
+				translation	-2 0 -450
+				scale .15 .15 .15
+				children Inline {
+					url	["ChuongNgaiVat\Skip-Dumpster02.wrl"]
+				}
+			}
+		]	
+	}
+}
+
+
+
 DEF car Transform {
 	children [
 		Transform 
 		{
-			translation	-1.3 0 0
+			translation	-1.3 0.1 0
 
 			rotation 0.1 0 0 -1.571
 
@@ -145,9 +210,11 @@ DEF car Transform {
 
 		Viewpoint {
 			jump FALSE
-			position 0 1.2 0
-			orientation	1 0 0 -0.2
+			position 0 1.1 0
+			orientation	1 0 0 -0.1
 		}
+
+		
 
 		DEF	TS TimeSensor {
 			cycleInterval 1
@@ -178,7 +245,14 @@ DEF car Transform {
 			function in(value, timestamp)
 			{
 				var angel = volang.rotation[1] == 0 ? 0 : volang.rotation[3];
-				car.translation = new SFVec3f(calNewPos(car.translation, angel, 1));
+				var newPos = calNewPos(car.translation, angel, 2);
+				//				var c = new Collidee();
+				//				c.body = car;
+				//				c.position = new SFVec3f(car.translation);
+				//				c.orientation = new SFRotation(car.rotation);
+
+				//				if (c.moveTo(new SFVec3f(newPos), new SFRotation(car.rotation)))
+				car.translation = new SFVec3f(newPos);
 			}
 
 
@@ -188,6 +262,27 @@ DEF car Transform {
 				pos[2] -= v * Math.cos(angel);
 
 				return pos;
+			}
+			"
+		}
+
+
+		DEF SCRGameOver Script {
+			eventIn	SFTime in
+			url	"javascript:
+			function in(value, timestamp)
+			{
+				print('Ban da thua!');
+			}
+			"
+		}
+
+		DEF SCRGameWin Script {
+			eventIn	SFTime in
+			url	"javascript:
+			function in(value, timestamp)
+			{
+				print('Ban da thang!');
 			}
 			"
 		}
@@ -208,3 +303,12 @@ ROUTE TS.fraction_changed TO OITrai.set_fraction
 ROUTE OITrai.value_changed TO canhtrai.rotation
 
 ROUTE Stop.touchTime TO TS.stopTime
+
+ROUTE col.collideTime TO TS.stopTime
+#ROUTE colMap.collideTime TO TS.stopTime
+ROUTE colDich.collideTime TO TS.stopTime
+
+
+ROUTE col.collideTime TO SCRGameOver.in
+#ROUTE colMap.collideTime TO SCRGameOver.in
+ROUTE colDich.collideTime TO SCRGameWin.in
